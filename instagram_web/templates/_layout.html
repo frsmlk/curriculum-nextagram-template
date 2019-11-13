@@ -24,6 +24,16 @@
 
   </head>
   <body>
+  <nav class="navbar navbar-light bg-light" style="background-color: #e3f2fd;">
+    <ul class="nav nav-pills pull-right">
+        <li role="presentation" class="navbar-brand mb-0 h1"><a href="{{url_for('home')}}">Home</a>
+        </li>
+        <li role="presentation" class="navbar-brand mb-0 h1"><a href="{{url_for('sessions.new')}}">Sign In</a>
+        </li>
+        <li role="presentation" class="navbar-brand mb-0 h1"><a href="{{url_for('users.new')}}">Sign Up</a>
+        </li>
+    </ul>
+   </nav>
     {% block content %}
     {% endblock %}
     <footer>
