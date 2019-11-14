@@ -25,13 +25,14 @@ def update():
 @profiles_blueprint.route('/create', methods=['POST'])
 @login_required
 def create():
-
+    # user = User.get_by_id(current_user.id)
     # hashed_password = generate_password_hash(password)
-    if current_user:
-        update_account = current_user.update(name=request.form.get('inputName'),
-                                             email=request.form.get(
-                                                 'inputEmail'),
-                                             password=request.form.get('inputPassword'))
+    if current_user.id:
+        update_account = User.update(name=request.form.get('inputName'),
+                                     email=request.form.get(
+            'inputEmail'),
+            password=generate_password_hash(request.form.get(
+                'inputPassword')).where(User.id == current_user.id)
         update_account.execute()
 
     # update_account.execute()

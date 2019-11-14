@@ -25,7 +25,6 @@ def create():
     account_select = User.get_or_none(name=name)
 
     if account_select:
-        print("okay")
         if check_password_hash(account_select.password, password):
             login_user(account_select)
             print(current_user)
